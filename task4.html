@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task4</title>
+    <link rel="stylesheet" href="task4.css">
+  
+</head>
+<header>WIC Restaurant</header>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="#product">Product</a>
+    <a href="#contact">Contact Us</a>
+</nav>
+
+
+<body>
+
+
+    <div class="container">
+        <h1>Video Shop Survey</h1>
+        <p>Please provide your response. If you complete the survey, you will receive a $5 shopping coupon.</p>
+        
+        <form>
+            <label for="name">Please write your full name: *</label>
+            <input type="text" id="name" name="name" required>
+            
+            <p><strong>How many days a week do you exercise? *</strong></p>
+            <input type="radio" id="no_gym" name="gym_hours" value="no_gym" required>
+            <label for="no_gym">No exercise</label><br>
+            
+            <input type="radio" id="less_2" name="gym_hours" value="less_2">
+            <label for="less_2">Less than 2 days</label><br>
+            
+            <input type="radio" id="less_5" name="watch_hours" value="less_5">
+            <label for="less_5">Less than 5 days</label><br>
+            
+            <input type="radio" id="more_5" name="gym_hours" value="more_5">
+            <label for="more_5">More than 5 days</label><br>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <footer>
+        &copy; 2025 WIC Restaurant. All Rights Reserved.
+    </footer>
+</body>
+</html>

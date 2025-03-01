@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Checklist</title>
+    <link rel="stylesheet" href="checklist.css">
+    
+</head>
+
+<header>WIC Restaurant</header>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="checklist.html">Product</a>
+    <a href="#contact">Contact Us</a>
+</nav>
+
+<body>
+
+    <h2>Restaurant Checklist</h2>
+    <table id="checklistTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Due Date</th>
+                <th>Priority</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        async function loadChecklist() {
+            const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6C7MNYk3bWvM6M7lWn2b_QE9Qx_Ro6SBxrBLzsVCPJ-8hgA44VY6b6c2WiYbOL8rfhYeSCAAFzwav/pub?output=csv"; // Substitua pelo seu link correto
+            
+            try {
+                const response = await fetch(sheetUrl);
+                if (!response.ok) throw new Error("Erro ao carregar os dados.");
+
+                const data = await response.text();
+                if (!data.trim()) throw new Error("Nenhum dado retornado. Verifique o link CSV.");
+
+                // Melhor maneira de dividir colunas corretamente
+                const rows = data.split("\n").map(row => row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g));
+
+                const tableBody = document.querySelector("#checklistTable tbody");
+                tableBody.innerHTML = "";
+
+                for (let i = 1; i < rows.length; i++) {
+                    let row = document.createElement("tr");
+
+                    // Remove aspas desnecessárias dos dados
+                    const cleanRow = rows[i].map(cell => cell.replace(/^"|"$/g, "").trim());
+
+                    let statusClass = cleanRow[2].toLowerCase() === "completed" ? "completed" : "pending";
+                    row.classList.add(statusClass);
+
+                    cleanRow.forEach(cell => {
+                        let cellElement = document.createElement("td");
+                        cellElement.textContent = cell;
+                        row.appendChild(cellElement);
+                    });
+
+                    tableBody.appendChild(row);
+                }
+            } catch (error) {
+                console.error("Erro ao carregar a planilha:", error);
+                alert("Erro ao carregar a planilha. Verifique o console para mais detalhes.");
+            }
+        }
+
+        window.onload = loadChecklist;
+    </script>
+
+<footer>
+    <p>&copy; 2025 Brazilian Restaurant - All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+

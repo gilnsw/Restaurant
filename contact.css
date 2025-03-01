@@ -1,0 +1,133 @@
+/* Reset padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo do corpo */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Estilo do cabeçalho */
+header {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+}
+
+/* Estilo do menu de navegação */
+nav {
+  display: flex;
+  justify-content: center;
+  background: #444;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+nav a:hover {
+  background: #666;
+  border-radius: 5px;
+}
+
+/* Container principal */
+.container {
+  max-width: 800px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Estilos do formulário */
+form {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+textarea {
+  resize: vertical;
+  height: 150px;
+}
+
+/* Botão de envio */
+button {
+  background: #fff;
+  color: #ff5e62;
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #f0f0f0;
+}
+
+/* Informações de contato */
+.contact-info {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 18px;
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+/* Rodapé */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
